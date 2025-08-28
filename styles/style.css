@@ -75,23 +75,18 @@ section {
 
 .surpresa {
     opacity: 0;
-    height: 0;
+    max-height: 0;
     overflow: hidden;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, visibility 0.5s;
 }
 
-.perfil:hover + .surpresa {
-    display: block;
-    transition: 8s;
+.perfil:hover + .surpresa,
+.surpresa:has(+ .perfil:hover) {
     opacity: 1;
-    height: auto;
+    max-height: 500px; /* A height large enough to show the image */
+    visibility: visible;
 }
-
-.surpresa:has(+ .perfil:hover)   {
-    display: block;
-    transition: 2s;
-    opacity: 1;
-    height: auto;
-} 
 
 /* GALERIA FOTOS */
 
